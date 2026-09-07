@@ -97,3 +97,46 @@ window.addEventListener("load", () => {
     // Browser autoplay policy blocked audio; wait for the tap.
   });
 });
+
+
+/* GitHub Pages music fix */
+(function () {
+  const music = document.getElementById("bgMusic");
+  if (!music) return;
+
+  music.loop = true;
+  music.preload = "auto";
+
+  const tryPlay = () => {
+    const p = music.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  };
+
+  // Browsers block autoplay until the visitor interacts with the page.
+  ["click", "touchstart", "keydown"].forEach(evt => {
+    document.addEventListener(evt, tryPlay, { once: true, passive: true });
+  });
+
+  // If the page already has a music button, support common IDs/classes.
+  const selectors = [
+    "#musicBtn", "#musicButton", "#playMusic", "#musicToggle",
+    ".music-btn", ".music-button", "[data-music-toggle]"
+  ];
+
+  let button = null;
+  for (const selector of selectors) {
+    button = document.querySelector(selector);
+    if (button) break;
+  }
+
+  if (button) {
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (music.paused) {
+        tryPlay();
+      } else {
+        music.pause();
+      }
+    });
+  }
+})();
