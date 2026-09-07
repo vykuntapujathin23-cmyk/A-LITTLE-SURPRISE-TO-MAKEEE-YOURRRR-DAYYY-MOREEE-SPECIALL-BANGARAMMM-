@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letters for Every Version of You ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+  <div class="entry-screen" id="entryScreen">
+    <div class="entry-content">
+      <div class="entry-heart">♡</div>
+      <div class="entry-kicker">A little surprise for you</div>
+      <h1>For Harshitha</h1>
+      <p>Turn the volume up and come in...</p>
+      <button class="entry-button" id="enterButton" type="button" onclick="enterSite()">Open my heart ♡</button>
+      <small id="autoplayHint">Music will start automatically when your browser allows it.</small>
+    </div>
+  </div>
+  <div class="site-content" id="siteContent">
+
+  <div class="floating-hearts" aria-hidden="true"></div>
+
+  <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Play music">♫ Music</button>
+<audio id="bgMusic" loop preload="metadata">
+  <source src="assets/song.mp3" type="audio/mpeg">
+</audio>
+
+<header class="nav">
+    <a class="brand" href="#home">♡ Letters for Harshitha</a>
+    <a href="#letters">A little love, always ♡</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">For Harshitha, with love</div>
+        <h1>Letters for every<br><em>version of you</em></h1>
+        <p>Some days call for celebration. Others call for comfort. And on some days, all we need is a reminder that we're loved.</p>
+        <button class="primary" onclick="document.querySelector('#letters').scrollIntoView({behavior:'smooth'})">♡ Open When...</button>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/photo-us.jpg" alt="One of my favorite memories">
+        <div class="photo-note">You are so loved ♡</div>
+      </div>
+    </section>
+
+    <section class="intro" id="letters">
+      <div class="section-kicker">Whenever you need me</div>
+      <h2>Open When...</h2>
+      <p class="section-sub">Choose the letter that feels right for you right now.</p>
+
+      <div class="letter-grid" id="letterGrid"></div>
+    </section>
+
+    <section class="memories" id="memories">
+      <div>
+        <div class="section-kicker">Little pieces of us</div>
+        <h2>Our memories</h2>
+        <p>Some moments are too sweet to leave only in a camera roll.</p>
+      </div>
+      <div class="memory-grid">
+        <figure><img src="assets/photo-dress.jpg" alt="Memory"><figcaption>Being with you is my favorite memory ♡</figcaption></figure>
+        <figure><img src="assets/photo-childhood.png" alt="Memory"><figcaption>From school days to now — always us.</figcaption></figure>
+        <figure><img src="assets/photo-candid.jpg" alt="Memory"><figcaption>Every little moment with you.</figcaption></figure>
+      </div>
+      <div class="video-row">
+        <video controls playsinline poster="assets/photo-us.jpg"><source src="assets/memory-1.mp4" type="video/mp4"></video>
+        <video controls playsinline poster="assets/photo-dress.jpg"><source src="assets/memory-2.mp4" type="video/mp4"></video>
+      </div>
+    </section>
+
+    
+    <section class="section journey-section" id="journey">
+      <div class="section-heading">
+        <span class="eyebrow">Our little story</span>
+        <h2>From School Days to Till Now ♡</h2>
+        <p>We started with school-day memories, and somehow those memories became a beautiful story of us.</p>
+      </div>
+
+      <div class="journey-video-card">
+        <video class="journey-video" controls playsinline preload="metadata">
+          <source src="assets/school-days-to-now.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+        <div class="journey-caption">
+          <span>School days → memories → us → now</span>
+          <strong>And I’d choose you in every chapter. ♡</strong>
+        </div>
+      </div>
+    </section>
+
+<section class="closing">
+      <div class="sunset"></div>
+      <div class="closing-copy">
+        <span>♡</span>
+        <h2>Always You</h2>
+        <p>No matter what version of you shows up,<br>I'll be here — with love, always, Harshitha.</p>
+        <div class="signature">Forever yours,<br><strong>Jathin</strong></div>
+        <small>Made with love ♡</small>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="letterModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" onclick="closeLetter()"></div>
+    <article class="letter-paper">
+      <button class="close" onclick="closeLetter()" aria-label="Close">×</button>
+      <div class="letter-icon" id="modalIcon">♡</div>
+      <div class="modal-kicker">Open when...</div>
+      <h2 id="modalTitle"></h2>
+      <div class="rule">♡</div>
+      <p id="modalText"></p>
+      <div class="signature">Forever yours,<br><strong>Jathin</strong></div>
+      <button class="secondary" onclick="closeLetter()">♡ Close letter</button>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
+</div>
+</body>
+</html>
